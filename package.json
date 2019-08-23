@@ -1,0 +1,64 @@
+{
+  "name": "viper-ui-remote-collab-admin-web-component",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build  --target wc --name remote-collab-admin-component ./src/RemoteCollabAdminWebComponent.vue",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@vue/web-component-wrapper": "1.2.0",
+    "core-js": "3.2.1",
+    "vue": "2.6.10",
+    "vue-class-component": "7.1.0",
+    "vue-material": "1.0.0-beta-11",
+    "vue-property-decorator": "8.2.1",
+    "vue-router": "3.1.2",
+    "vuelidate": "0.7.4",
+    "vuetify": "2.0.10",
+    "vuex": "3.1.1"
+  },
+  "devDependencies": {
+    "@types/vuelidate": "0.7.6",
+    "@vue/cli-plugin-babel": "3.11.0",
+    "@vue/cli-plugin-eslint": "3.11.0",
+    "@vue/cli-plugin-typescript": "3.11.0",
+    "@vue/cli-service": "3.11.0",
+    "@vue/eslint-config-prettier": "5.0.0",
+    "@vue/eslint-config-typescript": "4.0.0",
+    "babel-eslint": "10.0.2",
+    "eslint": "6.2.1",
+    "eslint-plugin-prettier": "3.1.0",
+    "eslint-plugin-vue": "5.2.3",
+    "prettier": "1.18.2",
+    "sass": "1.22.10",
+    "sass-loader": "7.3.1",
+    "typescript": "3.5.3",
+    "vue-template-compiler": "2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/prettier",
+      "@vue/typescript"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
