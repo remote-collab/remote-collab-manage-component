@@ -17,7 +17,8 @@
     "vue-router": "3.1.2",
     "vuelidate": "0.7.4",
     "vuetify": "2.0.10",
-    "vuex": "3.1.1"
+    "vuex": "3.1.1",
+    "custom-event-js": "1.0.0"
   },
   "devDependencies": {
     "@types/vuelidate": "0.7.6",

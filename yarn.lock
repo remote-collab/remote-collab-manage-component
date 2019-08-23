@@ -2667,6 +2667,11 @@ current-script-polyfill@^1.0.0:
   resolved "https://registry.npm.taobao.org/current-script-polyfill/download/current-script-polyfill-1.0.0.tgz#f31cf7e4f3e218b0726e738ca92a02d3488ef615"
   integrity sha1-8xz35PPiGLBybnOMqSoC00iO9hU=
 
+custom-event-js@latest:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/custom-event-js/-/custom-event-js-1.0.0.tgz#a983f83e8ffe2697187ec62af9a46850e8f061b3"
+  integrity sha512-mdNBxxLbaU16G7t325W/UHT9qOr1mzNNPcc26ErybRPkW4QCnzAf5QBlPjHaE3bvgCy7uW9CjmpL++DeM0EMaA==
+
 cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.npm.taobao.org/cyclist/download/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"

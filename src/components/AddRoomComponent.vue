@@ -14,7 +14,7 @@
       class="md-raised md-primary"
       @click="createRoom"
       :disabled="members.invalidEmails"
-      >Create new&nbsp;</md-button
+      >Create new&nbsp;&nbsp;</md-button
     >
     <div v-if="sessionId !== ''">
       Token generated: {{ sessionId }}
@@ -32,6 +32,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 import AddMemberComponent from "@/components/AddMemberComponent.vue";
 import { Members } from "@/model/members";
+import {AdminBackendService} from "@/service/AdminBackendService";
 
 @Component({
   components: {
@@ -43,6 +44,7 @@ export default class AddRoomComponent extends Vue {
 
   sessionId: string = "";
   sessionName: string = "";
+  backendService: AdminBackendService = new AdminBackendService();
 
   @Prop()
   closeMethod: Function | undefined;
@@ -60,6 +62,7 @@ export default class AddRoomComponent extends Vue {
     if (this.closeMethod !== undefined) {
       this.closeMethod();
     }
+    this.backendService.createNewRoom(this.sessionName, this.members);
   }
 }
 </script>
