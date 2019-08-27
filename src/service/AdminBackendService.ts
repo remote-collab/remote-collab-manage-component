@@ -1,4 +1,3 @@
-
 import axios, { AxiosResponse } from "axios";
 import { Email } from "@/model/email";
 

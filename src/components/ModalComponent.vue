@@ -61,7 +61,7 @@ export default class ModalComponent extends Vue {
 
 .modal-container {
   width: 300px;
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 20px 30px;
   background-color: #fff;
   border-radius: 2px;
@@ -79,13 +79,13 @@ export default class ModalComponent extends Vue {
   margin: 20px 0;
 }
 
-.modal-header .header {
+.modal-header {
   display: block;
   font-size: 2em;
   margin-block-start: 0.67em;
   margin-block-end: 0.67em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   font-weight: bold;
 }
 

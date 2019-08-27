@@ -74,7 +74,6 @@ export default class AddRoomComponent extends Vue {
   }
 
   close() {
-    // TODO
     if (this.closeMethod !== undefined) {
       this.closeMethod();
     }
