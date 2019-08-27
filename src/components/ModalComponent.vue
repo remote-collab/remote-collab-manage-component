@@ -32,7 +32,6 @@ import AddRoomComponent from "@/components/AddRoomComponent.vue";
   }
 })
 export default class ModalComponent extends Vue {
-
   @Prop()
   inlineComponent: string | undefined;
 

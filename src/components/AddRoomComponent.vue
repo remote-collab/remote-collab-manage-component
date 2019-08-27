@@ -16,6 +16,7 @@
       :disabled="members.invalidEmails"
       >Create new&nbsp;&nbsp;</md-button
     >
+    <md-button class="md-raised md-accent" @click="close">Close</md-button>
     <div v-if="sessionId !== ''">
       Token generated: {{ sessionId }}
       <md-button class="md-icon-button" @click="openSession">
@@ -32,7 +33,10 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 import AddMemberComponent from "@/components/AddMemberComponent.vue";
 import { Members } from "@/model/members";
-import {AdminBackendService} from "@/service/AdminBackendService";
+import { AdminBackendService } from "@/service/AdminBackendService";
+
+// @ts-ignore
+import CustomEvent from "custom-event-js";
 
 @Component({
   components: {
@@ -58,11 +62,22 @@ export default class AddRoomComponent extends Vue {
   }
 
   createRoom() {
+    this.backendService
+      .createNewRoom(this.sessionName, this.members.emails)
+      .then(response => {
+        if (response !== undefined) {
+          console.log(response);
+          this.sessionId = response.data["uuid"];
+          CustomEvent.dispatch("ROOM_GENERATED", { name: this.sessionName, uuid: this.sessionId });
+        }
+      });
+  }
+
+  close() {
     // TODO
     if (this.closeMethod !== undefined) {
       this.closeMethod();
     }
-    this.backendService.createNewRoom(this.sessionName, this.members);
   }
 }
 </script>
