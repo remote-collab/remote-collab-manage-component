@@ -11,19 +11,23 @@
       inlineComponent="AddRoomComponent"
       @close="showModal = false"
     ></modal-component>
+    <div>Current RoomUUID: {{ roomUUID }}</div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import store from "./store";
 
 // @ts-ignore
 import VueMaterial from "vue-material";
 // import AddRoomComponent from "@/components/AddRoomComponent.vue";
 import ModalComponent from "@/components/ModalComponent.vue";
+import Getter from "@/decorators/Getter";
 Vue.use(VueMaterial);
 
 @Component({
+  store,
   components: {
     ModalComponent
   }
@@ -31,6 +35,8 @@ Vue.use(VueMaterial);
 // @Component
 export default class RemoteCollabAdminWebComponent extends Vue {
   @Prop() private username!: string;
+
+  @Getter("roomUUID") roomUUID: string | undefined;
 
   private showModal = false;
 

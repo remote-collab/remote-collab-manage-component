@@ -1,0 +1,2 @@
+
+export const ROOM_GENERATED = "ROOM_GENERATED";

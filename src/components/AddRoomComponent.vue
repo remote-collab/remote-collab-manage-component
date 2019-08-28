@@ -33,10 +33,8 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 import AddMemberComponent from "@/components/AddMemberComponent.vue";
 import { Members } from "@/model/members";
-import { AdminBackendService } from "@/service/AdminBackendService";
 
-// @ts-ignore
-import CustomEvent from "custom-event-js";
+
 
 @Component({
   components: {
@@ -48,7 +46,7 @@ export default class AddRoomComponent extends Vue {
 
   sessionId: string = "";
   sessionName: string = "";
-  backendService: AdminBackendService = new AdminBackendService();
+
 
   @Prop()
   closeMethod: Function | undefined;
@@ -62,15 +60,7 @@ export default class AddRoomComponent extends Vue {
   }
 
   createRoom() {
-    this.backendService
-      .createNewRoom(this.sessionName, this.members.emails)
-      .then(response => {
-        if (response !== undefined) {
-          console.log(response);
-          this.sessionId = response.data["uuid"];
-          CustomEvent.dispatch("ROOM_GENERATED", { name: this.sessionName, uuid: this.sessionId });
-        }
-      });
+    this.$store.dispatch("createNewRoom", { sessionName: this.sessionName, emails: this.members.emails});
   }
 
   close() {
