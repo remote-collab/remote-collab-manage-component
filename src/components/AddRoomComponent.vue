@@ -14,7 +14,7 @@
       class="md-raised md-primary"
       @click="createRoom"
       :disabled="members.invalidEmails"
-      >Create new&nbsp;&nbsp;</md-button
+      >Create new</md-button
     >
     <md-button class="md-raised md-accent" @click="close">Close</md-button>
     <div v-if="sessionId !== ''">
@@ -34,8 +34,6 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import AddMemberComponent from "@/components/AddMemberComponent.vue";
 import { Members } from "@/model/members";
 
-
-
 @Component({
   components: {
     AddMemberComponent
@@ -47,7 +45,6 @@ export default class AddRoomComponent extends Vue {
   sessionId: string = "";
   sessionName: string = "";
 
-
   @Prop()
   closeMethod: Function | undefined;
 
@@ -55,12 +52,11 @@ export default class AddRoomComponent extends Vue {
     super();
   }
 
-  openSession() {
-    // TODO
-  }
-
   createRoom() {
-    this.$store.dispatch("createNewRoom", { sessionName: this.sessionName, emails: this.members.emails});
+    this.$store.dispatch("createNewRoom", {
+      sessionName: this.sessionName,
+      emails: this.members.emails
+    });
   }
 
   close() {

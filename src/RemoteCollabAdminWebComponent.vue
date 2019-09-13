@@ -73,4 +73,10 @@ export default class RemoteCollabAdminWebComponent extends Vue {
   text-align: center;
   color: #2c3e50;
 }
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
 </style>
