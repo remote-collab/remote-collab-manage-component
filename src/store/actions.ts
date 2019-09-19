@@ -1,7 +1,7 @@
 import { ActionContext, ActionTree } from "vuex";
 
 import State from "./state";
-import { ROOM_GENERATED } from "@/store/mutations-types";
+import {MODAL_CLOSED, ROOM_GENERATED} from "@/store/mutations-types";
 
 // @ts-ignore
 import CustomEvent from "custom-event-js";
@@ -26,6 +26,9 @@ const actions: ActionTree<State, State> = {
           });
         }
       });
+  },
+  modalClosed({commit}: ActionContext<State, State>, parameter: any): void {
+    commit(MODAL_CLOSED);
   }
 };
 

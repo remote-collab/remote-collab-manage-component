@@ -17,22 +17,23 @@
       >Create new</md-button
     >
     <md-button class="md-raised md-accent" @click="close">Close</md-button>
-    <div v-if="sessionId !== ''">
+    <!--div v-if="sessionId !== ''">
       Token generated: {{ sessionId }}
       <md-button class="md-icon-button" @click="openSession">
         <md-icon>link</md-icon>
       </md-button>
-    </div>
+    </div-->
   </div>
 </template>
 
 <script lang="ts">
 /* eslint-disable no-console */
 
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 
 import AddMemberComponent from "@/components/AddMemberComponent.vue";
 import { Members } from "@/model/members";
+import Getter from "@/decorators/Getter";
 
 @Component({
   components: {
@@ -42,11 +43,12 @@ import { Members } from "@/model/members";
 export default class AddRoomComponent extends Vue {
   private members = new Members();
 
-  sessionId: string = "";
   sessionName: string = "";
 
   @Prop()
   closeMethod: Function | undefined;
+  @Getter("hideModal")
+  hideModal: boolean | undefined;
 
   constructor() {
     super();
@@ -59,7 +61,16 @@ export default class AddRoomComponent extends Vue {
     });
   }
 
+  @Watch("hideModal")
+  onPropertyChanged(hideModal: boolean) {
+    if (hideModal) {
+      this.close();
+    }
+  }
+
   close() {
+    this.$store.dispatch("modalClosed");
+
     if (this.closeMethod !== undefined) {
       this.closeMethod();
     }

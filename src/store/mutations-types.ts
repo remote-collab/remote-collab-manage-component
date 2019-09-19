@@ -1,2 +1,3 @@
 
 export const ROOM_GENERATED = "ROOM_GENERATED";
+export const MODAL_CLOSED = "MODAL_CLOSED";

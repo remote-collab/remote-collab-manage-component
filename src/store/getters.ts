@@ -7,6 +7,9 @@ const getters: GetterTree<State, State> = {
 
   roomUUID(state: State): string {
     return state.roomUUID;
+  },
+  hideModal(state: State): boolean {
+    return state.hideModal;
   }
 };
 
