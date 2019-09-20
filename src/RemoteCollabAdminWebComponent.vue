@@ -1,7 +1,5 @@
 <template>
   <div class="page-container" id="app">
-    <h1>Create new screen sharing session</h1>
-
     <md-button class="md-raised md-primary" @click="openCreateDialog"
       >Start new Session&nbsp;</md-button
     >

@@ -3,6 +3,11 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
+          <div class="close_button">
+            <md-button class="md-icon-button md-accent" @click="closeFunction"
+              ><md-icon>close</md-icon></md-button
+            >
+          </div>
           <div class="modal-header">
             <slot name="header">
               Create new video session
@@ -60,7 +65,7 @@ export default class ModalComponent extends Vue {
 }
 
 .modal-container {
-  width: 300px;
+  width: 500px;
   margin: 0 auto;
   padding: 20px 30px;
   background-color: #fff;
@@ -87,11 +92,15 @@ export default class ModalComponent extends Vue {
   margin-inline-start: 0;
   margin-inline-end: 0;
   font-weight: bold;
+  text-align: left;
 }
 
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+.close_button {
+  float: right;
 }
 </style>

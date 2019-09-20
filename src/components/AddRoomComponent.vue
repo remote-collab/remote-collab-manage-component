@@ -16,13 +16,6 @@
       :disabled="members.invalidEmails"
       >Create new</md-button
     >
-    <md-button class="md-raised md-accent" @click="close">Close</md-button>
-    <!--div v-if="sessionId !== ''">
-      Token generated: {{ sessionId }}
-      <md-button class="md-icon-button" @click="openSession">
-        <md-icon>link</md-icon>
-      </md-button>
-    </div-->
   </div>
 </template>
 
