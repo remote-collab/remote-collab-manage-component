@@ -6,6 +6,7 @@ import {MODAL_CLOSED, ROOM_GENERATED} from "@/store/mutations-types";
 // @ts-ignore
 import CustomEvent from "custom-event-js";
 import { AdminBackendService } from "@/service/AdminBackendService";
+import {EventService} from "@/service/EventService";
 
 const actions: ActionTree<State, State> = {
 
@@ -20,7 +21,7 @@ const actions: ActionTree<State, State> = {
           let sessionId = response.data["uuid"];
 
           commit(ROOM_GENERATED, sessionId);
-          CustomEvent.dispatch("ROOM_GENERATED", {
+          EventService.getInstance().sendMessage("ROOM_GENERATED", {
             name: parameter.sessionName,
             uuid: sessionId
           });
