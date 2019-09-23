@@ -5011,6 +5011,11 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
+light-event-bus@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/light-event-bus/-/light-event-bus-1.0.1.tgz#77e42e1aab065c53f7ca16186e4ffb65588df969"
+  integrity sha512-qhO0TmMi9nMsyRW++N8j9NYMmuMrV0+7wIm1PJH+igCdrsfQLV0iQwxqviLeQlSUFNEY2fs7OYbT1A5l7Y10SQ==
+
 lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.npm.taobao.org/lines-and-columns/download/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
@@ -6705,11 +6710,6 @@ randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   integrity sha1-32+ENy8CcNxlzfYpE0mrekc9Tyo=
   dependencies:
     safe-buffer "^5.1.0"
-
-randomcolor@latest:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/randomcolor/-/randomcolor-0.5.4.tgz#df615b13f25b89ea58c5f8f72647f0a6f07adcc3"
-  integrity sha512-nYd4nmTuuwMFzHL6W+UWR5fNERGZeVauho8mrJDUSXdNDbao4rbrUwhuLgKC/j8VCS5+34Ria8CsTDuBjrIrQA==
 
 randomfill@^1.0.3:
   version "1.0.4"

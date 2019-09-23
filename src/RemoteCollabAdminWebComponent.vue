@@ -17,11 +17,13 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import store from "./store";
 
+
 // @ts-ignore
 import VueMaterial from "vue-material";
 // import AddRoomComponent from "@/components/AddRoomComponent.vue";
 import ModalComponent from "@/components/ModalComponent.vue";
 import Getter from "@/decorators/Getter";
+import {EventService} from "@/service/EventService";
 Vue.use(VueMaterial);
 
 @Component({
@@ -36,10 +38,18 @@ export default class RemoteCollabAdminWebComponent extends Vue {
 
   @Getter("roomUUID") roomUUID: string | undefined;
 
+  private eventService = new EventService();
+
   private showModal = false;
+
 
   constructor() {
     super();
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  mounted() {
+    this.eventService.init();
   }
 
   public openCreateDialog() {
