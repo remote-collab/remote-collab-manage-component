@@ -1,3 +1,3 @@
-
 export const ROOM_GENERATED = "ROOM_GENERATED";
-export const MODAL_CLOSED = "MODAL_CLOSED";
+export const CLOSE_MODAL = "CLOSE_MODAL";
+export const SHOW_MODAL = "SHOW_MODAL";

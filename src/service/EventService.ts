@@ -16,7 +16,6 @@ export class EventService {
     } else {
       // @ts-ignore
       this.eventBus = window.EventBus;
-
     }
     EventService.instance = this;
     const subscription = this.eventBus.subscribe("event", (arg: string) =>
@@ -30,12 +29,6 @@ export class EventService {
       this.instance.init();
     }
     return this.instance;
-  }
-
-  public disconnect() {
-    //this.subscriptions.forEach(subscription => {
-    //  this.eventBus.unsubscribe(subscription);
-    //});
   }
 
   public sendMessage(type: string, payload: any) {

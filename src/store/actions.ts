@@ -1,15 +1,16 @@
 import { ActionContext, ActionTree } from "vuex";
 
 import State from "./state";
-import {MODAL_CLOSED, ROOM_GENERATED} from "@/store/mutations-types";
+import {
+  CLOSE_MODAL,
+  ROOM_GENERATED,
+  SHOW_MODAL
+} from "@/store/mutations-types";
 
-// @ts-ignore
-import CustomEvent from "custom-event-js";
 import { AdminBackendService } from "@/service/AdminBackendService";
-import {EventService} from "@/service/EventService";
+import { EventService } from "@/service/EventService";
 
 const actions: ActionTree<State, State> = {
-
   createNewRoom({ commit }: ActionContext<State, State>, parameter: any): void {
     let backendService: AdminBackendService = new AdminBackendService();
     backendService
@@ -28,8 +29,11 @@ const actions: ActionTree<State, State> = {
         }
       });
   },
-  modalClosed({commit}: ActionContext<State, State>, parameter: any): void {
-    commit(MODAL_CLOSED);
+  showModal({ commit }: ActionContext<State, State>): void {
+    commit(SHOW_MODAL);
+  },
+  closeModalDialog({ commit }: ActionContext<State, State>): void {
+    commit(CLOSE_MODAL);
   }
 };
 

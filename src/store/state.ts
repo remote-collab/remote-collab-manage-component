@@ -1,11 +1,9 @@
-
 export default class State {
-
   public roomUUID: string;
-  public hideModal: boolean;
+  public showModal: boolean;
 
   constructor() {
     this.roomUUID = "";
-    this.hideModal = false;
+    this.showModal = false;
   }
 }

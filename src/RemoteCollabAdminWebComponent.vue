@@ -1,13 +1,16 @@
 <template>
   <div class="page-container" id="app">
-    <md-button class="md-raised md-primary" @click="openCreateDialog"
+    <md-button
+      class="md-raised md-primary"
+      @click="openCreateDialog"
+      v-if="show_button"
       >Start new Session&nbsp;</md-button
     >
     <modal-component
       id="show-modal"
       v-if="showModal"
       inlineComponent="AddRoomComponent"
-      @close="showModal = false"
+      @close="closeCreateDialog"
     ></modal-component>
     <div>Current RoomUUID: {{ roomUUID }}</div>
   </div>
@@ -17,13 +20,12 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import store from "./store";
 
-
 // @ts-ignore
+// noinspection TypeScriptCheckImport
 import VueMaterial from "vue-material";
-// import AddRoomComponent from "@/components/AddRoomComponent.vue";
 import ModalComponent from "@/components/ModalComponent.vue";
 import Getter from "@/decorators/Getter";
-import {EventService} from "@/service/EventService";
+import { EventService } from "@/service/EventService";
 Vue.use(VueMaterial);
 
 @Component({
@@ -35,13 +37,12 @@ Vue.use(VueMaterial);
 // @Component
 export default class RemoteCollabAdminWebComponent extends Vue {
   @Prop() private username!: string;
+  @Prop({ type: Boolean, default: true }) private show_button!: boolean;
 
   @Getter("roomUUID") roomUUID: string | undefined;
+  @Getter("showModal") showModal!: boolean;
 
   private eventService = new EventService();
-
-  private showModal = false;
-
 
   constructor() {
     super();
@@ -50,10 +51,34 @@ export default class RemoteCollabAdminWebComponent extends Vue {
   // noinspection JSUnusedGlobalSymbols
   mounted() {
     this.eventService.init();
+    this.eventService.register("showModal", this.openCreateDialog);
+    RemoteCollabAdminWebComponent.addExternalCallApi();
+  }
+
+  static addExternalCallApi() {
+    const plugin = document.createElement("script");
+    plugin.setAttribute("lang", "js");
+    plugin.text =
+      "var remoteCollab = (function() {\n" +
+      "    return {\n" +
+      "        openDialog:function() {\n" +
+      '            window.EventBus.publish("showModal","");\n' +
+      "        },\n" +
+      "    }\n" +
+      "}());\n";
+    plugin.async = true;
+    document.head.appendChild(plugin);
   }
 
   public openCreateDialog() {
-    this.showModal = !this.showModal;
+    this.$store
+      .dispatch("showModal")
+      .then(() => console.log("Event dispatched"));
+  }
+  public closeCreateDialog() {
+    this.$store
+      .dispatch("closeModalDialog")
+      .then(() => console.log("Event dispatched"));
   }
 }
 </script>

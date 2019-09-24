@@ -6,7 +6,7 @@ export default function Getter(getterType: string) {
     options.computed = !options.computed ? {} : options.computed;
     options.computed[key] = function() {
       // @ts-ignore
-        return this.$store.getters[getterType];
+      return this.$store.getters[getterType];
     };
   });
 }
