@@ -29,8 +29,11 @@ const actions: ActionTree<State, State> = {
         }
       });
   },
-  showModal({ commit }: ActionContext<State, State>): void {
+  showAdminModal({ commit }: ActionContext<State, State>): void {
     commit(SHOW_MODAL);
+  },
+  closeAdminModalDialog({ commit }: ActionContext<State, State>): void {
+    commit(CLOSE_MODAL);
   }
 };
 
