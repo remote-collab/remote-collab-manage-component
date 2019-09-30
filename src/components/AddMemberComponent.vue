@@ -1,5 +1,8 @@
 <template>
   <div class="addUser">
+    <md-button @click="addNewMember" v-if="(members.emails.length === 0)" class="md-icon-button">
+      <md-icon>add</md-icon>
+    </md-button>
     <md-field
       v-bind:key="v.id"
       v-for="(v, index) in $v.members.emails.$each.$iter"
@@ -18,7 +21,7 @@
         >The email is required</span
       >
       <span class="md-error" v-else-if="!v.email.email">Invalid email</span>
-      <md-button @click="addNewMember" class="md-icon-button">
+      <md-button @click="addNewMember" v-if="(members.emails.length < 5)" class="md-icon-button">
         <md-icon>add</md-icon>
       </md-button>
       <md-button
@@ -73,6 +76,7 @@ export default class AddMemberComponent extends Vue {
     if (this.$v) {
       this.$v.members.$touch();
     }
+    console.log("Length: " + this.members.emails.length);
   }
 
   // noinspection JSUnusedGlobalSymbols

@@ -1,7 +1,7 @@
 <template>
   <div class="roomPage">
     <md-field>
-      <label>Initial Value</label>
+      <label>Session name</label>
       <md-input
         v-model="sessionName"
         placeholder="Enter your session name"
