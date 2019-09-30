@@ -51,7 +51,7 @@ export default class RemoteCollabAdminWebComponent extends Vue {
   // noinspection JSUnusedGlobalSymbols
   mounted() {
     this.eventService.init();
-    this.eventService.register("showModal", this.openCreateDialog);
+    this.eventService.register("showAdminModal", this.openCreateDialog);
     RemoteCollabAdminWebComponent.addExternalCallApi();
   }
 
@@ -61,8 +61,8 @@ export default class RemoteCollabAdminWebComponent extends Vue {
     plugin.text =
       "var remoteCollab = (function() {\n" +
       "    return {\n" +
-      "        openDialog:function() {\n" +
-      '            window.EventBus.publish("showModal","");\n' +
+      "        openAdminDialog:function() {\n" +
+      '            window.EventBus.publish("showAdminModal","");\n' +
       "        },\n" +
       "    }\n" +
       "}());\n";
@@ -72,12 +72,12 @@ export default class RemoteCollabAdminWebComponent extends Vue {
 
   public openCreateDialog() {
     this.$store
-      .dispatch("showModal")
+      .dispatch("showAdminModal")
       .then(() => console.log("Event dispatched"));
   }
   public closeCreateDialog() {
     this.$store
-      .dispatch("closeModalDialog")
+      .dispatch("closeAdminModalDialog")
       .then(() => console.log("Event dispatched"));
   }
 }

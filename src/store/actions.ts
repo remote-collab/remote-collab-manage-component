@@ -31,9 +31,6 @@ const actions: ActionTree<State, State> = {
   },
   showModal({ commit }: ActionContext<State, State>): void {
     commit(SHOW_MODAL);
-  },
-  closeModalDialog({ commit }: ActionContext<State, State>): void {
-    commit(CLOSE_MODAL);
   }
 };
 
