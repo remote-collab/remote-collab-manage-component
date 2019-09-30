@@ -12,7 +12,13 @@
       inlineComponent="AddRoomComponent"
       @close="closeCreateDialog"
     ></modal-component>
-    <div>Current RoomUUID: {{ roomUUID }}</div>
+    <input type="hidden" id="testing-code" :value="roomUUID" />
+    <div v-if="roomUUID">
+      Current RoomUUID: {{ roomUUID }}
+      <md-button @click="copyTestingCode" class="md-icon-button">
+        <md-icon>attach_file</md-icon>
+      </md-button>
+    </div>
   </div>
 </template>
 
@@ -68,6 +74,29 @@ export default class RemoteCollabAdminWebComponent extends Vue {
       "}());\n";
     plugin.async = true;
     document.head.appendChild(plugin);
+  }
+
+  copyTestingCode() {
+    const testingCodeToCopy = document.createElement("input");
+    testingCodeToCopy.setAttribute("type", "text");
+    // Assign it the value of the specified element
+    testingCodeToCopy.setAttribute("value", this.roomUUID + "");
+
+    // Append it to the body
+    document.body.appendChild(testingCodeToCopy);
+    testingCodeToCopy.select();
+
+    try {
+      var successful = document.execCommand("copy");
+      var msg = successful ? "successful" : "unsuccessful";
+      console.log("Testing code was copied " + msg);
+    } catch (err) {
+      console.log("Oops, unable to copy");
+    }
+
+    /* unselect the range */
+    testingCodeToCopy.setAttribute("type", "hidden");
+    window.getSelection()!.removeAllRanges();
   }
 
   public openCreateDialog() {
