@@ -65,9 +65,9 @@ export default class RemoteCollabAdminWebComponent extends Vue {
     const plugin = document.createElement("script");
     plugin.setAttribute("lang", "js");
     plugin.text =
-      "var remoteCollab = (function() {\n" +
+      "var remoteCollabAdmin = (function() {\n" +
       "    return {\n" +
-      "        openAdminDialog:function() {\n" +
+      "        openDialog:function() {\n" +
       '            window.EventBus.publish("showAdminModal","");\n' +
       "        },\n" +
       "    }\n" +

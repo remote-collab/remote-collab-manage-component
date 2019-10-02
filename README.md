@@ -66,7 +66,7 @@ Per default set to localhost:5000 for local testing. Must be set if you are in a
 
 ### External API 
 You can trigger the Open modal dialog vie external API. 
-´´´remoteCollab.openAdminDialog();´´´
+´´´remoteCollabAdmin.openDialog();´´´
 
 
 ### Example: 
