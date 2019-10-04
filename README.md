@@ -50,24 +50,30 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # Web component definition  
 
 The custom html tag is: 
+```xml
   <remote-collab-admin-component></remote-collab-admin-component>
+```
 
 ### Parameters: 
 
-- username (optional)
- Should be passed from the application. 
+* `username` (optional)<br>
+  Should be passed from the application. 
 
-- show_button (optional) 
-Switch to hide and show the open dialog button. If set to false, than the dialog must be opened by API call (remoteCollab.openAdminDialog()). The default is "true".
+* `show_button` (optional)<br> 
+  Switch to hide and show the open dialog button. If set to false, than the dialog must be opened by API call (remoteCollab.openAdminDialog()). The default is "true".
 
-- backendurl (optional)
-Per default set to localhost:5000 for local testing. Must be set if you are in a server environment.
+* `backendurl` (optional)<br> 
+  Per default set to localhost:5000 for local testing. Must be set if you are in a server environment.
 
 
 ### External API 
 You can trigger the Open modal dialog vie external API. 
-´´´remoteCollabAdmin.openDialog();´´´
+```bash
+remoteCollabAdmin.openDialog();
+```
 
 
 ### Example: 
+```xml
  <remote-collab-admin-component username="qx443322" show_button="false"></remote-collab-admin-component>
+```
