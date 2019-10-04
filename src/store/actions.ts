@@ -2,17 +2,18 @@ import { ActionContext, ActionTree } from "vuex";
 
 import State from "./state";
 import {
-  CLOSE_MODAL,
+  CLOSE_MODAL, INITIALIZED,
   ROOM_GENERATED,
   SHOW_MODAL
 } from "@/store/mutations-types";
 
 import { AdminBackendService } from "@/service/AdminBackendService";
 import { EventService } from "@/service/EventService";
+import store from "../store";
 
 const actions: ActionTree<State, State> = {
   createNewRoom({ commit }: ActionContext<State, State>, parameter: any): void {
-    let backendService: AdminBackendService = new AdminBackendService();
+    let backendService: AdminBackendService = new AdminBackendService(store.getters.backendUrl);
     backendService
       .createNewRoom(parameter.sessionName, parameter.emails)
       .then(response => {
@@ -28,6 +29,9 @@ const actions: ActionTree<State, State> = {
           });
         }
       });
+  },
+  initialized({ commit }: ActionContext<State, State>, parameter: any): void {
+    commit(INITIALIZED, parameter);
   },
   showAdminModal({ commit }: ActionContext<State, State>): void {
     commit(SHOW_MODAL);

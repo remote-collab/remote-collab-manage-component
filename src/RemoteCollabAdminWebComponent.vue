@@ -44,6 +44,7 @@ Vue.use(VueMaterial);
 export default class RemoteCollabAdminWebComponent extends Vue {
   @Prop() private username!: string;
   @Prop({ type: Boolean, default: true }) private show_button!: boolean;
+  @Prop() private backendurl!: string;
 
   @Getter("roomUUID") roomUUID: string | undefined;
   @Getter("showModal") showModal!: boolean;
@@ -59,6 +60,12 @@ export default class RemoteCollabAdminWebComponent extends Vue {
     this.eventService.init();
     this.eventService.register("showAdminModal", this.openCreateDialog);
     RemoteCollabAdminWebComponent.addExternalCallApi();
+    this.$store
+      .dispatch("initialized", {
+        userName: this.username,
+        backendUrl: this.backendurl
+      })
+      .then(() => console.log("Event dispatched"));
   }
 
   static addExternalCallApi() {
@@ -77,14 +84,11 @@ export default class RemoteCollabAdminWebComponent extends Vue {
   }
 
   copyTestingCode() {
-    const testingCodeToCopy = document.createElement("input");
-    testingCodeToCopy.setAttribute("type", "text");
-    // Assign it the value of the specified element
-    testingCodeToCopy.setAttribute("value", this.roomUUID + "");
-
-    // Append it to the body
-    document.body.appendChild(testingCodeToCopy);
-    testingCodeToCopy.select();
+    const hiddenHelperElement = document.createElement("input");
+    hiddenHelperElement.setAttribute("type", "text");
+    hiddenHelperElement.setAttribute("value", this.roomUUID + "");
+    document.body.appendChild(hiddenHelperElement);
+    hiddenHelperElement.select();
 
     try {
       var successful = document.execCommand("copy");
@@ -95,7 +99,7 @@ export default class RemoteCollabAdminWebComponent extends Vue {
     }
 
     /* unselect the range */
-    testingCodeToCopy.setAttribute("type", "hidden");
+    hiddenHelperElement.setAttribute("type", "hidden");
     window.getSelection()!.removeAllRanges();
   }
 

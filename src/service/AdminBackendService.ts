@@ -3,8 +3,11 @@ import { Email } from "@/model/email";
 
 // @ts-ignore
 export class AdminBackendService {
-  private OPENVIDU_SERVER_URL =
-    "https://" + location.hostname + ":5000" + "/api/v1";
+  public backendUrl: string | undefined;
+
+  constructor(backendUrl : string){
+    this.backendUrl = backendUrl;
+  }
 
   public createNewRoom(
     sessionName: string,
@@ -19,7 +22,7 @@ export class AdminBackendService {
     const headers = { "Content-Type": "application/json" };
     const config = { headers: headers };
     return axios
-      .post(this.OPENVIDU_SERVER_URL + "/rooms", body, config)
+      .post(this.backendUrl + "/rooms", body, config)
       .catch(error => AdminBackendService.handleError(error));
   }
 

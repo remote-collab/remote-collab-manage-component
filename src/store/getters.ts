@@ -8,6 +8,9 @@ const getters: GetterTree<State, State> = {
   roomUUID(state: State): string {
     return state.roomUUID;
   },
+  backendUrl(state: State): string {
+    return state.backendUrl;
+  },
   showModal(state: State): boolean {
     return state.showModal;
   }
