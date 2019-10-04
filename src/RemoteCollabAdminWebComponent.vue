@@ -13,7 +13,7 @@
       @close="closeCreateDialog"
     ></modal-component>
     <input type="hidden" id="testing-code" :value="roomUUID" />
-    <div v-if="roomUUID">
+    <div v-if="show_debug && roomUUID">
       Current RoomUUID: {{ roomUUID }}
       <md-button @click="copyTestingCode" class="md-icon-button">
         <md-icon>attach_file</md-icon>
@@ -45,6 +45,7 @@ export default class RemoteCollabAdminWebComponent extends Vue {
   @Prop() private username!: string;
   @Prop({ type: Boolean, default: true }) private show_button!: boolean;
   @Prop() private backendurl!: string;
+  @Prop({ type: Boolean, default: false }) private show_debug!: boolean;
 
   @Getter("roomUUID") roomUUID: string | undefined;
   @Getter("showModal") showModal!: boolean;
