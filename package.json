@@ -1,10 +1,10 @@
 {
-  "name": "viper-ui-remote-collab-admin-web-component",
+  "name": "remote-collab-manage-component",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build  --target wc --name remote-collab-admin-component ./src/RemoteCollabAdminWebComponent.vue",
+    "build": "vue-cli-service build  --target wc --name remote-collab-manage-component ./src/RemoteCollabManageComponent.vue",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -20,10 +20,11 @@
     "vuex": "3.1.1",
     "custom-event-js": "1.0.0",
     "axios": "0.19.0",
-    "light-event-bus" : "1.0.1"
+    "light-event-bus": "1.0.1"
   },
   "devDependencies": {
     "@types/vuelidate": "0.7.6",
+    "@vue/babel-preset-app": "^4.0.5",
     "@vue/cli-plugin-babel": "3.11.0",
     "@vue/cli-plugin-eslint": "3.11.0",
     "@vue/cli-plugin-typescript": "3.11.0",

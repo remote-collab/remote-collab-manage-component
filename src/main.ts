@@ -1,7 +1,7 @@
 import Vue from "vue";
 // @ts-ignore
 import wrap from "@vue/web-component-wrapper";
-import RemoteCollabAdminWebComponent from "@/RemoteCollabAdminWebComponent.vue";
+import RemoteCollabManageComponent from "@/RemoteCollabManageComponent.vue";
 
-const WrappedElement = wrap(Vue, RemoteCollabAdminWebComponent);
-window.customElements.define("remote-collab-admin-component", WrappedElement);
+const WrappedElement = wrap(Vue, RemoteCollabManageComponent);
+window.customElements.define("remote-collab-manage-component", WrappedElement);

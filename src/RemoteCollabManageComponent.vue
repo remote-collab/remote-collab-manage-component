@@ -41,7 +41,7 @@ Vue.use(VueMaterial);
   }
 })
 // @Component
-export default class RemoteCollabAdminWebComponent extends Vue {
+export default class RemoteCollabManageComponent extends Vue {
   @Prop() private username!: string;
   @Prop({ type: Boolean, default: true }) private show_button!: boolean;
   @Prop() private backendurl!: string;
@@ -60,7 +60,7 @@ export default class RemoteCollabAdminWebComponent extends Vue {
   mounted() {
     this.eventService.init();
     this.eventService.register("showAdminModal", this.openCreateDialog);
-    RemoteCollabAdminWebComponent.addExternalCallApi();
+    RemoteCollabManageComponent.addExternalCallApi();
     this.$store
       .dispatch("initialized", {
         userName: this.username,
