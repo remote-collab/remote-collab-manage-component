@@ -11,6 +11,14 @@ The Remote Collaboration Manage Component allows you to administrate your remote
 * [npm](https://nodejs.org/en/download/) needs to be installed on the local machine.
 * Install Vue CLI ``npm i @vue/cli``
 
+## Web Component Usage
+The Remote Collaboration Join Componant can be used as any other web component.
+
+It is created with ``@vue/web-component-wrapper``. Please run ``npm run build`` to create the web component.
+
+The javascript files are saved in the dist-Folder and can be included in your own application with the custom html tag.
+
+
 # Web component definition  
 
 The custom html tag is:
