@@ -5,7 +5,7 @@ import { Email } from "@/model/email";
 export class AdminBackendService {
   public backendUrl: string | undefined;
 
-  constructor(backendUrl : string){
+  constructor(backendUrl: string) {
     this.backendUrl = backendUrl;
   }
 
@@ -14,11 +14,15 @@ export class AdminBackendService {
     emails: Email[]
   ): Promise<AxiosResponse<string> | void> {
     console.log("Creating new room " + sessionName);
-
-    const body = JSON.stringify({
-      roomName: sessionName,
-      emails: emails.map(item => item.email)
-    });
+    const nonEmtptyEmails = emails
+      .filter(item => item.email != "")
+      .map(item => item.email);
+    let jsonData = { roomName: sessionName };
+    if (nonEmtptyEmails.length > 0) {
+      // @ts-ignore
+      jsonData["emails"] = nonEmtptyEmails;
+    }
+    const body = JSON.stringify(jsonData);
     const headers = { "Content-Type": "application/json" };
     const config = { headers: headers };
     return axios
