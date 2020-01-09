@@ -1,4 +1,4 @@
-import { MutationTree } from "vuex";
+import {MutationTree} from "vuex";
 
 import State from "./state";
 import {CLOSE_MODAL, INITIALIZED, ROOM_GENERATED, SHOW_MODAL} from "@/store/mutations-types";
@@ -16,7 +16,7 @@ const mutations: MutationTree<State> = {
     if (paramater.backendUrl !== undefined && paramater.backendUrl !== "") {
       state.backendUrl = paramater.backendUrl;
     } else {
-      state.backendUrl = "https://" + location.hostname + ":5000" + "/api/v1";
+      state.backendUrl = "https://" + location.hostname + ":8080" + "/api/v2";
     }
     console.log("Initialized." + state.backendUrl);
   },

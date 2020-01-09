@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-# Remote Collaboration Manage Web Component
+# Remote Collaboration Manage Component
 
 The Remote Collaboration Manage Component allows you to administrate your remote session.
 
@@ -12,7 +12,7 @@ The Remote Collaboration Manage Component allows you to administrate your remote
 * Install Vue CLI ``npm i @vue/cli``
 
 ## Web Component Usage
-The Remote Collaboration Join Componant can be used as any other web component.
+The Remote Collaboration Join Component can be used as any other web component.
 
 It is created with ``@vue/web-component-wrapper``. Please run ``npm run build`` to create the web component.
 
